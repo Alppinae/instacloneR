@@ -5,8 +5,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import useAuth from '../store/authContenxt.js';
 
 export function Header () {
+    const {setSession} = useAuth();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -23,7 +26,7 @@ export function Header () {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={() => setSession(null)}>{"Logout"}</Button>
         </Toolbar>
       </AppBar>
     </Box>
