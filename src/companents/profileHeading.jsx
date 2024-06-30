@@ -1,7 +1,7 @@
 import { Avatar, Box, Stack } from "@mui/material";
 import { deepOrange } from '@mui/material/colors';
 
-export const ProfileHeading = () => {
+export const ProfileHeading = ({nickName, userName}) => {
     return (
         <Stack
             direction="row"
@@ -10,8 +10,8 @@ export const ProfileHeading = () => {
         >
             <Stack direction="row" gap={3} alignItems="center"
             >
-                <Avatar src="./src/assets/serhat.jpg" />
-                <Box>Alppinae</Box>
+                <Avatar sx={{ bgcolor: deepOrange[500] }}>{nickName}</Avatar>
+                <Box>{userName}</Box>
             </Stack>
             <Box>...</Box>
         </Stack>

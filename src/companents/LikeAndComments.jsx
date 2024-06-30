@@ -5,14 +5,19 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import SendIcon from '@mui/icons-material/Send';
 import { Stack, Typography } from "@mui/material";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InputArea } from './inputArea';
 
 
-export const LikesAndComments = () => {
+export const LikesAndComments = ({post}) => {
     const [hasLike, setHasLike] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
-    const [likeCount, setLikeCount] = useState(9);
+    const [isVideo, setIsVideo] = useState(false);
+
+    useEffect(() => {
+        setHasLike(post.has_like ? true : false)
+        setIsSaved(post.is_saved ? true : false)
+    }, [])
 
     const handleClickLike = () => setHasLike(hasLike ? false : true);
     const handleClickSave = () => setIsSaved(isSaved ? false : true);
@@ -38,9 +43,9 @@ export const LikesAndComments = () => {
                 </Stack>
             </Stack>
 
-            <Typography variant='h6' component="h2" display="flex" justifyContent="flex-start">{`${likeCount} likes`}</Typography>
+            <Typography variant='h6' component="h2" display="flex" justifyContent="flex-start">{isVideo ? `${post.likesCount} görüntüleme` : `${post.likesCount} beğeni`}</Typography>
 
-            <InputArea />
+            <InputArea post={post} />
         </Stack>
     )
 }
