@@ -12,7 +12,7 @@ export function Header () {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{backgroundColor:"black"}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -24,7 +24,7 @@ export function Header () {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Instagram
           </Typography>
           <Button color="inherit" onClick={() => setSession(null)}>{"Logout"}</Button>
         </Toolbar>
